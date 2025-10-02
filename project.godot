@@ -13,3 +13,12 @@ config_version=5
 config/name="CC5408"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/window_width_override=1280
+window/size/window_height_override=720
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
