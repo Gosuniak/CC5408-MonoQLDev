@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cses64j75up8y"]
+
+[ext_resource type="Script" uid="uid://bdqu8x3w8m3ga" path="res://scripts/PlayerTop.gd" id="1_r560h"]
+[ext_resource type="Texture2D" uid="uid://d3akj6amya5a" path="res://icon.svg" id="2_c5wqe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boxie"]
+size = Vector2(40, 60)
+
+[node name="PlayerTop" type="CharacterBody2D"]
+script = ExtResource("1_r560h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_boxie")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+rotation = 3.1415927
+scale = Vector2(0.31250003, 0.46875)
+texture = ExtResource("2_c5wqe")
+
+[node name="Label" type="Label" parent="."]
+offset_top = 50.0
+offset_right = 100.0
+offset_bottom = 80.0
+text = "Inactivo"
+horizontal_alignment = 1

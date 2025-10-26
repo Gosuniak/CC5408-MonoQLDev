@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccim34ty7c28n"]
+
+[ext_resource type="Script" uid="uid://c551th6xwamrq" path="res://scripts/Caja.gd" id="1_43avb"]
+[ext_resource type="Texture2D" uid="uid://d3akj6amya5a" path="res://icon.svg" id="2_qfw4h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eq67o"]
+size = Vector2(50, 50)
+
+[node name="Caja" type="RigidBody2D"]
+script = ExtResource("1_43avb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eq67o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.390625, 0.390625)
+texture = ExtResource("2_qfw4h")
