@@ -8,6 +8,9 @@ var gravity = -ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var sprite = $Sprite2D
 @onready var label = $Label
+@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var playback: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
+@onready var pivot: Node2D = $Pivot
 
 # Precargar escena de caja
 var caja_scene = preload("res://scenes/caja.tscn")
@@ -33,6 +36,20 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+	if direction:
+		pivot.scale.x = sign(direction)
+	
+	if is_on_ceiling():
+		if direction or abs(velocity.x) > 10:
+			playback.travel("run")
+		else:
+			playback.travel("idle")
+	else:
+		if velocity.y > 0:
+			playback.travel("jump")
+		else:
+			playback.travel("fall")
 	
 	# Recoger items con Flecha Abajo
 	detectar_items()
