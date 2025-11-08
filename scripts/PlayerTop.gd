@@ -6,7 +6,7 @@ const JUMP_VELOCITY = 400.0
 # Gravedad invertida
 var gravity = -ProjectSettings.get_setting("physics/2d/default_gravity")
 
-@onready var sprite = $Sprite2D
+@onready var sprite = $Pivot/Sprite2D
 @onready var label = $Label
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var playback: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
