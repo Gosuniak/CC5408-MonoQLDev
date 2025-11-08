@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dk8mi1p8xpxox"]
+[gd_scene load_steps=10 format=3 uid="uid://dk8mi1p8xpxox"]
 
 [ext_resource type="PackedScene" uid="uid://jk6lawq8xufx" path="res://scenes/player_bottom.tscn" id="1_h2yge"]
+[ext_resource type="Script" uid="uid://cxbqxhlmgcirk" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cses64j75up8y" path="res://scenes/player_top.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://8x722qu4gujo" path="res://scenes/item.tscn" id="3_lquwl"]
-[ext_resource type="Texture2D" uid="uid://d3akj6amya5a" path="res://icon.svg" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cxu208bcvhaq" path="res://icon.svg" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://rh3ykb6m4myc" path="res://scenes/zona_victoria.tscn" id="6_tefeu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
 size = Vector2(1168, 20)
@@ -15,6 +17,7 @@ size = Vector2(1171, 20)
 size = Vector2(273.25, 113.5)
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_tbgi4")
 
 [node name="PlayerBottom" parent="." instance=ExtResource("1_h2yge")]
 position = Vector2(82, 580)
@@ -50,3 +53,52 @@ position = Vector2(299, 40)
 
 [node name="Item2" parent="." instance=ExtResource("3_lquwl")]
 position = Vector2(244, 614)
+
+[node name="UIVictoria" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="FondoVictoria" type="ColorRect" parent="UIVictoria"]
+visible = false
+modulate = Color(0, 0, 0, 0.8)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelMenu" type="Panel" parent="UIVictoria"]
+visible = false
+offset_left = 440.0
+offset_top = 210.0
+offset_right = 840.0
+offset_bottom = 510.0
+
+[node name="LabelGanaste" type="Label" parent="UIVictoria/PanelMenu"]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 400.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 48
+text = "Ganaste!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnSiguienteNivel" type="Button" parent="UIVictoria/PanelMenu"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 120.0
+offset_right = 300.0
+offset_bottom = 170.0
+text = "Siguiente Nivel"
+
+[node name="BtnReiniciar" type="Button" parent="UIVictoria/PanelMenu"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 190.0
+offset_right = 300.0
+offset_bottom = 240.0
+text = "Reiniciar Nivel"
+
+[node name="ZonaVictoria" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(1100, 302)
+scale = Vector2(0.5, 5)

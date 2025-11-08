@@ -37,3 +37,24 @@ func jugador2_usar_item():
 		print("Jugador VERDE lanzó caja hacia ABAJO")
 		return true
 	return false
+
+# === SISTEMA DE VICTORIA ===
+
+signal nivel_completado
+
+var juego_terminado = false
+
+func victoria():
+	if not juego_terminado:
+		juego_terminado = true
+		print("¡¡¡ NIVEL COMPLETADO !!!")
+		emit_signal("nivel_completado")
+		# Pausar el juego
+		get_tree().paused = true
+		
+# Función para resetear el estado del juego
+func resetear_juego():
+	juego_terminado = false
+	jugador1_tiene_item = false
+	jugador2_tiene_item = false
+	print("GameManager reseteado")
