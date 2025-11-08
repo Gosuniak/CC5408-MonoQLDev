@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cxbqxhlmgcirk" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cses64j75up8y" path="res://scenes/player_top.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://8x722qu4gujo" path="res://scenes/item.tscn" id="3_lquwl"]
-[ext_resource type="Texture2D" uid="uid://cxu208bcvhaq" path="res://icon.svg" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://d3akj6amya5a" path="res://icon.svg" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://rh3ykb6m4myc" path="res://scenes/zona_victoria.tscn" id="6_tefeu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
