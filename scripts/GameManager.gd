@@ -1,9 +1,8 @@
 extends Node
 
 # Singleton - Maneja items para cada jugador por separado
-
-var jugador1_tiene_item = false  # Jugador de ABAJO
-var jugador2_tiene_item = false  # Jugador de ARRIBA
+var jugador1_item_scene: PackedScene = null
+var jugador2_item_scene: PackedScene = null
 
 # Referencias a los jugadores
 var player_bottom = null
@@ -13,30 +12,41 @@ func _ready():
 	print("GameManager inicializado - Sistema bidireccional de cajas")
 
 # Jugador de ABAJO recoge item
-func jugador1_recoger_item():
-	jugador1_tiene_item = true
-	print("¡Jugador AZUL recogió item! Puede lanzar cajas hacia ARRIBA")
+func jugador1_recoger_item(scene: PackedScene):
+	if jugador1_item_scene == null:
+		jugador1_item_scene = scene
+		print("¡Jugador AZUL recogió item! Puede lanzar cajas hacia ARRIBA")
 
 # Jugador de ARRIBA recoge item
-func jugador2_recoger_item():
-	jugador2_tiene_item = true
-	print("¡Jugador VERDE recogió item! Puede lanzar cajas hacia ABAJO")
+func jugador2_recoger_item(scene: PackedScene):
+	if jugador2_item_scene == null:
+		jugador2_item_scene = scene
+		print("¡Jugador VERDE recogió item! Puede lanzar cajas hacia ABAJO")
 
 # Jugador de ABAJO usa item
-func jugador1_usar_item():
-	if jugador1_tiene_item:
-		jugador1_tiene_item = false
-		print("Jugador AZUL lanzó caja hacia ARRIBA")
-		return true
-	return false
+func jugador1_usar_item() -> PackedScene:
+	if jugador1_item_scene != null:
+		var scene_to_spawn = jugador1_item_scene
+		jugador1_item_scene = null # Consumir el item
+		print("Jugador AZUL usará item para lanzar caja.")
+		return scene_to_spawn
+	return null # No tiene item
 
 # Jugador de ARRIBA usa item
-func jugador2_usar_item():
-	if jugador2_tiene_item:
-		jugador2_tiene_item = false
-		print("Jugador VERDE lanzó caja hacia ABAJO")
-		return true
-	return false
+func jugador2_usar_item() -> PackedScene:
+	if jugador2_item_scene != null:
+		var scene_to_spawn = jugador2_item_scene
+		jugador2_item_scene = null # Consumir el item
+		print("Jugador VERDE usará item para lanzar caja.")
+		return scene_to_spawn
+	return null # No tiene item
+
+# Helper para saber si tiene *cualquier* item (para el UI)
+func jugador1_tiene_item() -> bool:
+	return jugador1_item_scene != null
+	
+func jugador2_tiene_item() -> bool:
+	return jugador2_item_scene != null
 
 # === SISTEMA DE VICTORIA ===
 
@@ -55,6 +65,6 @@ func victoria():
 # Función para resetear el estado del juego
 func resetear_juego():
 	juego_terminado = false
-	jugador1_tiene_item = false
-	jugador2_tiene_item = false
+	jugador1_item_scene = null
+	jugador2_item_scene = null
 	print("GameManager reseteado")

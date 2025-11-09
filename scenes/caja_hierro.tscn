@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh7a116nae3xs"]
+
+[ext_resource type="PackedScene" uid="uid://ccim34ty7c28n" path="res://scenes/caja_base.tscn" id="1_vxxdx"]
+
+[node name="Caja" instance=ExtResource("1_vxxdx")]
+modulate = Color(0.29954746, 0.29954746, 0.29954743, 1)
+mass = 10000.0

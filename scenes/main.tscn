@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://dk8mi1p8xpxox"]
+[gd_scene load_steps=11 format=4 uid="uid://dk8mi1p8xpxox"]
 
 [ext_resource type="PackedScene" uid="uid://jk6lawq8xufx" path="res://scenes/player_bottom.tscn" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://cxbqxhlmgcirk" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cses64j75up8y" path="res://scenes/player_top.tscn" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://b78ko42cq4cn3" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://8x722qu4gujo" path="res://scenes/item.tscn" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://dh7a116nae3xs" path="res://scenes/caja_hierro.tscn" id="6_85g3d"]
 [ext_resource type="PackedScene" uid="uid://rh3ykb6m4myc" path="res://scenes/zona_victoria.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://hmd7mihrk3lm" path="res://scenes/caja_cristal.tscn" id="6_tipki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
 texture = ExtResource("2_o6xl0")
@@ -210,9 +212,11 @@ position = Vector2(29, 34)
 
 [node name="Item" parent="." instance=ExtResource("3_lquwl")]
 position = Vector2(63, 25)
+box_scene = ExtResource("6_85g3d")
 
 [node name="Item2" parent="." instance=ExtResource("3_lquwl")]
 position = Vector2(61, 328)
+box_scene = ExtResource("6_tipki")
 
 [node name="UIVictoria" type="CanvasLayer" parent="."]
 process_mode = 3
