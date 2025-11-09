@@ -1,12 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccim34ty7c28n"]
+[gd_scene load_steps=5 format=3 uid="uid://ccim34ty7c28n"]
 
 [ext_resource type="Script" uid="uid://c551th6xwamrq" path="res://scripts/Caja.gd" id="1_43avb"]
 [ext_resource type="Texture2D" uid="uid://b78ko42cq4cn3" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_3hmpi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3hmpi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eq67o"]
 size = Vector2(16, 16)
 
 [node name="Caja" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_3hmpi")
+can_sleep = false
+lock_rotation = true
 script = ExtResource("1_43avb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

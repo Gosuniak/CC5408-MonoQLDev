@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 100.0
 const JUMP_VELOCITY = -250.0
 
+var push_force = 80.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var sprite_2d: Sprite2D = $Pivot/Sprite2D
@@ -35,6 +36,11 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 	
 	if direction:
 		pivot.scale.x = sign(direction)
