@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://rh3ykb6m4myc"]
 
 [ext_resource type="Script" uid="uid://c1vtfs0ygo4xo" path="res://scripts/ZonaVictoria.gd" id="1_uovhg"]
-[ext_resource type="Texture2D" uid="uid://cxu208bcvhaq" path="res://icon.svg" id="2_iiin3"]
+[ext_resource type="Texture2D" uid="uid://d3akj6amya5a" path="res://icon.svg" id="2_iiin3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yx581"]
 size = Vector2(200, 150)

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d3akj6amya5a" path="res://icon.svg" id="2_kg5e7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ys7tt"]
-size = Vector2(30, 30)
+size = Vector2(12, 12)
 
 [node name="Item" type="Area2D"]
 script = ExtResource("1_ttk8k")
@@ -15,5 +15,5 @@ shape = SubResource("RectangleShape2D_ys7tt")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(-1.9073486e-06, 1.9073486e-06)
-scale = Vector2(0.234375, 0.234375)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_kg5e7")
