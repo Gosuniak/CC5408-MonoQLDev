@@ -181,3 +181,7 @@ texture = ExtResource("2_mrej0")
 flip_v = true
 hframes = 8
 vframes = 8
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

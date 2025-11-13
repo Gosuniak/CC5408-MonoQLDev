@@ -5,17 +5,20 @@ const JUMP_VELOCITY = -250.0
 
 var push_force = 80.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var was_on_floor: bool = false
 
 @onready var sprite_2d: Sprite2D = $Pivot/Sprite2D
 @onready var label = $Label
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var playback: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 @onready var pivot: Node2D = $Pivot
+@onready var coyote_timer: Timer = $CoyoteTimer
 
 func _ready():
 	GameManager.player_bottom = self
 	actualizar_label()
 	add_to_group("player")
+	coyote_timer.timeout.connect(_on_coyote_timeout)
 
 func _physics_process(delta):
 	# Gravedad
@@ -23,8 +26,9 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	# Saltar con W
-	if Input.is_action_just_pressed("jugador1_saltar") and is_on_floor():
+	if Input.is_action_just_pressed("jugador1_saltar") and (is_on_floor() or not coyote_timer.is_stopped()):
 		velocity.y = JUMP_VELOCITY
+		was_on_floor = false
 
 	# Movimiento con A y D
 	var direction = Input.get_axis("jugador1_izquierda", "jugador1_derecha")
@@ -39,6 +43,13 @@ func _physics_process(delta):
 		var c = get_slide_collision(i)
 		if c.get_collider() is RigidBody2D:
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+	
+	if was_on_floor and not is_on_floor():
+		coyote_timer.start()
+	if is_on_floor():
+		coyote_timer.stop()
+	
+	was_on_floor = is_on_floor()
 	
 	if direction:
 		pivot.scale.x = sign(direction)
@@ -108,3 +119,6 @@ func actualizar_label():
 		label.text = "WASD [ITEM!]"
 	else:
 		label.text = "WASD"
+
+func _on_coyote_timeout():
+	pass

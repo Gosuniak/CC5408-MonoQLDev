@@ -4,15 +4,15 @@ const SPEED = 100.0
 const JUMP_VELOCITY = 250.0
 
 var push_force = 80.0
-
-# Gravedad invertida
 var gravity = -ProjectSettings.get_setting("physics/2d/default_gravity")
+var was_on_ceiling: bool = false
 
 @onready var sprite = $Pivot/Sprite2D
 @onready var label = $Label
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var playback: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 @onready var pivot: Node2D = $Pivot
+@onready var coyote_timer: Timer = $CoyoteTimer
 
 func _ready():
 	GameManager.player_top = self
@@ -25,8 +25,9 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	# Saltar con Flecha Arriba
-	if Input.is_action_just_pressed("jugador2_saltar") and is_on_ceiling():
+	if Input.is_action_just_pressed("jugador2_saltar") and (is_on_ceiling() or not coyote_timer.is_stopped()):
 		velocity.y = JUMP_VELOCITY
+		was_on_ceiling = false
 
 	# Movimiento con Flechas
 	var direction = Input.get_axis("jugador2_izquierda", "jugador2_derecha")
@@ -41,6 +42,13 @@ func _physics_process(delta):
 		var c = get_slide_collision(i)
 		if c.get_collider() is RigidBody2D:
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+	
+	if was_on_ceiling and not is_on_ceiling():
+		coyote_timer.start()
+	if is_on_ceiling():
+		coyote_timer.stop()
+	
+	was_on_ceiling = is_on_ceiling()
 	
 	if direction:
 		pivot.scale.x = sign(direction)
