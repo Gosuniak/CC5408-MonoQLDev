@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://enac381ne0b0"]
+
+[ext_resource type="PackedScene" uid="uid://ccim34ty7c28n" path="res://scenes/caja_base.tscn" id="1_b6wnv"]
+
+[node name="Caja" instance=ExtResource("1_b6wnv")]

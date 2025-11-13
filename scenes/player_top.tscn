@@ -149,6 +149,8 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(0, -108.23045)
 
 [node name="PlayerTop" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_r560h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -179,3 +181,7 @@ texture = ExtResource("2_mrej0")
 flip_v = true
 hframes = 8
 vframes = 8
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
