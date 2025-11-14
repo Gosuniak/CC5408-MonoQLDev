@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Cat & Tac"
-run/main_scene="uid://dk8mi1p8xpxox"
+run/main_scene="uid://bprmikvyos3av"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
