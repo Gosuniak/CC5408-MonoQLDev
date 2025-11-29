@@ -51,6 +51,7 @@ func jugador2_tiene_item() -> bool:
 # === SISTEMA DE VICTORIA ===
 
 signal nivel_completado
+signal game_over_signal
 
 var juego_terminado = false
 
@@ -66,8 +67,8 @@ func game_over():
 	if not juego_terminado:
 		print("Game ouva")
 		juego_terminado = true
-		await get_tree().create_timer(1.0).timeout
-		call_deferred("reiniciar_escena")
+		emit_signal("game_over_signal")
+		get_tree().paused = true
 
 func reiniciar_escena():
 	resetear_juego()
