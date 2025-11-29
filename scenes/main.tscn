@@ -1,15 +1,16 @@
-[gd_scene load_steps=13 format=4 uid="uid://dk8mi1p8xpxox"]
+[gd_scene load_steps=14 format=4 uid="uid://dk8mi1p8xpxox"]
 
 [ext_resource type="PackedScene" uid="uid://jk6lawq8xufx" path="res://scenes/player_bottom.tscn" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://cxbqxhlmgcirk" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cses64j75up8y" path="res://scenes/player_top.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://i2dvjgefufar" path="res://ui/pause_menu.tscn" id="2_choun"]
-[ext_resource type="Texture2D" uid="uid://b78ko42cq4cn3" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://pdgnu46d8xfv" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://8x722qu4gujo" path="res://scenes/item.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dh7a116nae3xs" path="res://scenes/caja_hierro.tscn" id="6_85g3d"]
 [ext_resource type="PackedScene" uid="uid://enac381ne0b0" path="res://scenes/caja_madera.tscn" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://rh3ykb6m4myc" path="res://scenes/zona_victoria.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://hmd7mihrk3lm" path="res://scenes/caja_cristal.tscn" id="6_tipki"]
+[ext_resource type="PackedScene" uid="uid://b308f71klvuoi" path="res://scenes/PlataformaVidrio.tscn" id="11_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
 texture = ExtResource("2_o6xl0")
@@ -282,3 +283,9 @@ text = "Reiniciar Nivel"
 position = Vector2(605, 172)
 scale = Vector2(0.2, 2)
 collision_mask = 3
+
+[node name="PlataformaVidrio" parent="." instance=ExtResource("11_ya4ey")]
+position = Vector2(188, 191)
+
+[node name="PlataformaVidrio2" parent="." instance=ExtResource("11_ya4ey")]
+position = Vector2(28, 190)

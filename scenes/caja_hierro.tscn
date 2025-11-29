@@ -2,6 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://ccim34ty7c28n" path="res://scenes/caja_base.tscn" id="1_vxxdx"]
 
-[node name="Caja" instance=ExtResource("1_vxxdx")]
+[node name="Caja" groups=["Caja_Hierro"] instance=ExtResource("1_vxxdx")]
 modulate = Color(0.29954746, 0.29954746, 0.29954743, 1)
 mass = 10000.0
+continuous_cd = 2
+
+[node name="CollisionShape2D" parent="." index="0" groups=["Caja_Hierro"]]
+position = Vector2(0.5, 0)
+
+[node name="Sprite2D" parent="." index="1" groups=["Caja_Hierro"]]
+position = Vector2(0.4999994, 0)
+scale = Vector2(0.9375, 1)
