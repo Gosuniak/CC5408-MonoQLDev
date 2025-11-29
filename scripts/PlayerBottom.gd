@@ -13,12 +13,14 @@ var was_on_floor: bool = false
 @onready var playback: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 @onready var pivot: Node2D = $Pivot
 @onready var coyote_timer: Timer = $CoyoteTimer
+@onready var hurtbox: Area2D = $Hurtbox
 
 func _ready():
 	GameManager.player_bottom = self
 	actualizar_label()
 	add_to_group("player")
 	coyote_timer.timeout.connect(_on_coyote_timeout)
+	hurtbox.body_entered.connect(_on_hurtbox_body_entered)
 
 func _physics_process(delta):
 	# Gravedad
@@ -122,3 +124,11 @@ func actualizar_label():
 
 func _on_coyote_timeout():
 	pass
+
+func _on_hurtbox_body_entered(_body):
+	print("pinchao")
+	if not visible:
+		return
+	set_physics_process(false)
+	visible = false
+	GameManager.game_over()

@@ -61,10 +61,22 @@ func victoria():
 		emit_signal("nivel_completado")
 		# Pausar el juego
 		get_tree().paused = true
-		
+
+func game_over():
+	if not juego_terminado:
+		print("Game ouva")
+		juego_terminado = true
+		await get_tree().create_timer(1.0).timeout
+		call_deferred("reiniciar_escena")
+
+func reiniciar_escena():
+	resetear_juego()
+	get_tree().reload_current_scene()
+
 # Función para resetear el estado del juego
 func resetear_juego():
 	juego_terminado = false
 	jugador1_item_scene = null
 	jugador2_item_scene = null
+	get_tree().paused = false
 	print("GameManager reseteado")

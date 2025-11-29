@@ -13,11 +13,13 @@ var was_on_ceiling: bool = false
 @onready var playback: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 @onready var pivot: Node2D = $Pivot
 @onready var coyote_timer: Timer = $CoyoteTimer
+@onready var hurtbox: Area2D = $Hurtbox
 
 func _ready():
 	GameManager.player_top = self
 	actualizar_label()
 	add_to_group("player")
+	hurtbox.body_entered.connect(_on_hurtbox_body_entered)
 
 func _physics_process(delta):
 	# Gravedad invertida
@@ -115,6 +117,14 @@ func lanzar_caja():
 
 func actualizar_label():
 	if GameManager.jugador2_tiene_item():
-		label.text = "FLECHAS [ITEM!]"
+		label.text = "IJKL [ITEM!]"
 	else:
-		label.text = "FLECHAS"
+		label.text = "IJKL"
+
+func _on_hurtbox_body_entered(_body):
+	print("pinchao")
+	if not visible:
+		return
+	set_physics_process(false)
+	visible = false
+	GameManager.game_over()
