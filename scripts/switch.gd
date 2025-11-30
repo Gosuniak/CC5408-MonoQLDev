@@ -4,7 +4,7 @@ extends Area2D
 signal switch_signal(is_pressed: bool)
 
 # Variable para arrastrar la compuerta/plataforma objetivo desde el editor
-@export var target: Node2D
+@export var targets: Array[Node2D]
 
 # Precargamos las texturas del botón normal y presionado
 const textura_normal = preload("res://assets/switch/button.png")
@@ -23,15 +23,16 @@ func _ready() -> void:
 	body_exited.connect(_verificar_zona)
 	
 	# Conexión de switch_signal
-	if target:
-		if target.has_method("_on_switch_pressed"):
-			# Conectar señal a la compuerta/plataformna
-			switch_signal.connect(target._on_switch_pressed)
-			print("conexión exitosa entre botón y ", target.name)
+	for target in targets:
+		if target:
+			if target.has_method("_on_switch_pressed"):
+				# Conectar señal a la compuerta/plataformna
+				switch_signal.connect(target._on_switch_pressed)
+				print("conexión exitosa entre botón y ", target.name)
+			else:
+				print("Error: el objeto", target.name, " no tiene el método")
 		else:
-			print("Error: el objeto no tiene el método")
-	else:
-		print("Warning: no se ha asignado target desde el inspector")
+			print("Warning: no se ha asignado target desde el inspector")
 
 func _verificar_zona(_body):
 	# Escanear todo lo que está tocando el botón ahora mismo
