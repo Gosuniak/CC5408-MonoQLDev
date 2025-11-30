@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dk8mi1p8xpxox"]
+[gd_scene load_steps=18 format=4 uid="uid://dk8mi1p8xpxox"]
 
 [ext_resource type="PackedScene" uid="uid://jk6lawq8xufx" path="res://scenes/player_bottom.tscn" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://cxbqxhlmgcirk" path="res://scripts/main.gd" id="1_tbgi4"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://enac381ne0b0" path="res://scenes/caja_madera.tscn" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://rh3ykb6m4myc" path="res://scenes/zona_victoria.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://hmd7mihrk3lm" path="res://scenes/caja_cristal.tscn" id="6_tipki"]
+[ext_resource type="Texture2D" path="res://assets/kitty.png" id="7_kitty"]
+[ext_resource type="FontFile" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="8_font"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
 texture = ExtResource("2_o6xl0")
@@ -199,6 +201,70 @@ terrain_set_0/terrain_1/name = "Roof"
 terrain_set_0/terrain_1/color = Color(0.18648177, 0.34921995, 1, 1)
 sources/0 = SubResource("TileSetAtlasSource_tipki")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_victory_card"]
+bg_color = Color(0.14902, 0.105882, 0.215686, 0.95)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 8
+shadow_offset = Vector2(0, 3)
+content_margin_left = 22.0
+content_margin_top = 18.0
+content_margin_right = 22.0
+content_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_victory_btn"]
+bg_color = Color(0.721569, 0.505882, 0.592157, 0.95)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+border_width_all = 1
+border_color = Color(0.960784, 0.878431, 0.964706, 0.85)
+content_margin_left = 8.0
+content_margin_top = 7.0
+content_margin_right = 8.0
+content_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_victory_btn_hover"]
+bg_color = Color(0.843137, 0.643137, 0.729412, 0.97)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+border_width_all = 1
+border_color = Color(0.992157, 0.94902, 0.972549, 1)
+content_margin_left = 8.0
+content_margin_top = 7.0
+content_margin_right = 8.0
+content_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_victory_btn_pressed"]
+bg_color = Color(0.596078, 0.360784, 0.443137, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+border_width_all = 1
+border_color = Color(0.862745, 0.662745, 0.741176, 1)
+content_margin_left = 8.0
+content_margin_top = 7.0
+content_margin_right = 8.0
+content_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_victory_photo"]
+bg_color = Color(0.203922, 0.156863, 0.278431, 0.92)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_tbgi4")
 
@@ -238,45 +304,111 @@ process_mode = 3
 
 [node name="FondoVictoria" type="ColorRect" parent="UIVictoria"]
 visible = false
-modulate = Color(0, 0, 0, 0.8)
+color = Color(0, 0, 0, 0.45)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
-[node name="PanelMenu" type="Panel" parent="UIVictoria"]
+[node name="PanelMenu" type="PanelContainer" parent="UIVictoria"]
 visible = false
-offset_left = 127.0
-offset_top = 24.0
-offset_right = 527.0
-offset_bottom = 324.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -150.0
+offset_right = 160.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_victory_card")
 
-[node name="LabelGanaste" type="Label" parent="UIVictoria/PanelMenu"]
-layout_mode = 0
-offset_top = 30.0
-offset_right = 400.0
-offset_bottom = 90.0
-theme_override_font_sizes/font_size = 48
-text = "Ganaste!"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="CardMargin" type="MarginContainer" parent="UIVictoria/PanelMenu"]
+layout_mode = 2
 
-[node name="BtnSiguienteNivel" type="Button" parent="UIVictoria/PanelMenu"]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 120.0
-offset_right = 300.0
-offset_bottom = 170.0
-text = "Siguiente Nivel"
+[node name="MainVBox" type="VBoxContainer" parent="UIVictoria/PanelMenu/CardMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+separation = 12
 
-[node name="BtnReiniciar" type="Button" parent="UIVictoria/PanelMenu"]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 190.0
-offset_right = 300.0
-offset_bottom = 240.0
-text = "Reiniciar Nivel"
+[node name="Title" type="VBoxContainer" parent="UIVictoria/PanelMenu/CardMargin/MainVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+separation = 4
+
+[node name="LabelGanaste" type="Label" parent="UIVictoria/PanelMenu/CardMargin/MainVBox/Title"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Level Complete!"
+theme_override_fonts/font = ExtResource("8_font")
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 0
+
+[node name="Tagline" type="Label" parent="UIVictoria/PanelMenu/CardMargin/MainVBox/Title"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Both kittens made it home safely."
+theme_override_colors/font_color = Color(0.827451, 0.796078, 0.941176, 0.92)
+theme_override_font_sizes/font_size = 11
+autowrap_mode = 2
+
+[node name="CatImagePanel" type="PanelContainer" parent="UIVictoria/PanelMenu/CardMargin/MainVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_minimum_size = Vector2(0, 110)
+theme_override_styles/panel = SubResource("StyleBoxFlat_victory_photo")
+
+[node name="CatImage" type="TextureRect" parent="UIVictoria/PanelMenu/CardMargin/MainVBox/CatImagePanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("7_kitty")
+expand_mode = 1
+stretch_mode = 5
+modulate = Color(1, 1, 1, 0.97)
+
+[node name="Buttons" type="VBoxContainer" parent="UIVictoria/PanelMenu/CardMargin/MainVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+separation = 5
+
+[node name="BtnSiguienteNivel" type="Button" parent="UIVictoria/PanelMenu/CardMargin/MainVBox/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 27)
+theme_override_styles/normal = SubResource("StyleBoxFlat_victory_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_victory_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_victory_btn_pressed")
+theme_override_colors/font_color = Color(0.192157, 0.109804, 0.203922, 1)
+theme_override_font_sizes/font_size = 13
+text = "Next level"
+
+[node name="BtnReiniciar" type="Button" parent="UIVictoria/PanelMenu/CardMargin/MainVBox/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 25)
+theme_override_styles/normal = SubResource("StyleBoxFlat_victory_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_victory_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_victory_btn_pressed")
+theme_override_colors/font_color = Color(0.192157, 0.109804, 0.203922, 1)
+theme_override_font_sizes/font_size = 12
+text = "Restart level"
+
+[node name="Hint" type="Label" parent="UIVictoria/PanelMenu/CardMargin/MainVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Press R to retry or Enter for the next adventure."
+theme_override_colors/font_color = Color(0.780392, 0.729412, 0.905882, 0.9)
+theme_override_font_sizes/font_size = 9
+horizontal_alignment = 0
 
 [node name="ZonaVictoria" parent="." instance=ExtResource("6_tefeu")]
 position = Vector2(605, 172)
