@@ -1,21 +1,25 @@
 [gd_scene load_steps=12 format=3 uid="uid://bprmikvyos3av"]
 
 [ext_resource type="Script" uid="uid://vyquxk2tigu8" path="res://scripts/main_menu.gd" id="1_0dkrt"]
-[ext_resource type="PackedScene" uid="uid://dk8mi1p8xpxox" path="res://scenes/main.tscn" id="2_wk0pr"]
-[ext_resource type="Texture2D" path="res://assets/kitty.png" id="3_0uwcm"]
-[ext_resource type="FontFile" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="4_lah1v"]
+[ext_resource type="PackedScene" uid="uid://cgfqyw8uotwom" path="res://scenes/nivel1.tscn" id="2_rmr83"]
+[ext_resource type="Texture2D" uid="uid://hmasupm0p2o0" path="res://assets/kitty.png" id="3_0uwcm"]
+[ext_resource type="FontFile" uid="uid://cd75dxybwsbxl" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="4_lah1v"]
 
 [sub_resource type="Gradient" id="Gradient_bfx4g"]
 offsets = PackedFloat32Array(0, 0.55, 1)
 colors = PackedColorArray(0.054902, 0.043137, 0.0862745, 1, 0.121569, 0.101961, 0.203922, 1, 0.215686, 0.160784, 0.329412, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture_p7cs6"]
-fill = 1
 gradient = SubResource("Gradient_bfx4g")
 width = 640
 height = 360
+fill = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+content_margin_left = 20.0
+content_margin_top = 18.0
+content_margin_right = 20.0
+content_margin_bottom = 18.0
 bg_color = Color(0.14902, 0.105882, 0.215686, 0.95)
 corner_radius_top_left = 18
 corner_radius_top_right = 18
@@ -24,60 +28,53 @@ corner_radius_bottom_left = 18
 shadow_color = Color(0, 0, 0, 0.35)
 shadow_size = 8
 shadow_offset = Vector2(0, 3)
-content_margin_left = 20.0
-content_margin_top = 18.0
-content_margin_right = 20.0
-content_margin_bottom = 18.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
-bg_color = Color(0.721569, 0.505882, 0.592157, 0.95)
-corner_radius_top_left = 11
-corner_radius_top_right = 11
-corner_radius_bottom_right = 11
-corner_radius_bottom_left = 11
-border_width_all = 1
-border_color = Color(0.960784, 0.878431, 0.964706, 0.85)
-content_margin_left = 8.0
-content_margin_top = 7.0
-content_margin_right = 8.0
-content_margin_bottom = 7.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
-bg_color = Color(0.843137, 0.643137, 0.729412, 0.97)
-corner_radius_top_left = 11
-corner_radius_top_right = 11
-corner_radius_bottom_right = 11
-corner_radius_bottom_left = 11
-border_width_all = 1
-border_color = Color(0.992157, 0.94902, 0.972549, 1)
-content_margin_left = 8.0
-content_margin_top = 7.0
-content_margin_right = 8.0
-content_margin_bottom = 7.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
-bg_color = Color(0.596078, 0.360784, 0.443137, 1)
-corner_radius_top_left = 11
-corner_radius_top_right = 11
-corner_radius_bottom_right = 11
-corner_radius_bottom_left = 11
-border_width_all = 1
-border_color = Color(0.862745, 0.662745, 0.741176, 1)
-content_margin_left = 8.0
-content_margin_top = 7.0
-content_margin_right = 8.0
-content_margin_bottom = 7.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_photo"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
 bg_color = Color(0.203922, 0.156863, 0.278431, 0.92)
 corner_radius_top_left = 14
 corner_radius_top_right = 14
 corner_radius_bottom_right = 14
 corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
 content_margin_left = 8.0
-content_margin_top = 8.0
+content_margin_top = 7.0
 content_margin_right = 8.0
-content_margin_bottom = 8.0
+content_margin_bottom = 7.0
+bg_color = Color(0.721569, 0.505882, 0.592157, 0.95)
+border_color = Color(0.960784, 0.878431, 0.964706, 0.85)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+content_margin_left = 8.0
+content_margin_top = 7.0
+content_margin_right = 8.0
+content_margin_bottom = 7.0
+bg_color = Color(0.596078, 0.360784, 0.443137, 1)
+border_color = Color(0.862745, 0.662745, 0.741176, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+content_margin_left = 8.0
+content_margin_top = 7.0
+content_margin_right = 8.0
+content_margin_bottom = 7.0
+bg_color = Color(0.843137, 0.643137, 0.729412, 0.97)
+border_color = Color(0.992157, 0.94902, 0.972549, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -87,9 +84,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-theme_override_colors/font_color = Color(0.937255, 0.901961, 0.992157, 1)
 script = ExtResource("1_0dkrt")
-main_scene = ExtResource("2_wk0pr")
+main_scene = ExtResource("2_rmr83")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -131,10 +127,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MainCard" type="PanelContainer" parent="SafeMargin/CenterContainer"]
+custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-custom_minimum_size = Vector2(320, 0)
 theme_override_styles/panel = SubResource("StyleBoxFlat_card")
 
 [node name="CardMargin" type="MarginContainer" parent="SafeMargin/CenterContainer/MainCard"]
@@ -144,92 +140,86 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-separation = 14
 
 [node name="HeaderVBox" type="VBoxContainer" parent="SafeMargin/CenterContainer/MainCard/CardMargin/MainVBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-separation = 3
 
 [node name="TitleLabel" type="Label" parent="SafeMargin/CenterContainer/MainCard/CardMargin/MainVBox/HeaderVBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Cat & taC"
 theme_override_fonts/font = ExtResource("4_lah1v")
 theme_override_font_sizes/font_size = 28
-horizontal_alignment = 0
+text = "Cat & taC"
 
 [node name="Tagline" type="Label" parent="SafeMargin/CenterContainer/MainCard/CardMargin/MainVBox/HeaderVBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Guide clever kittens through cozy conundrums."
 theme_override_colors/font_color = Color(0.827451, 0.796078, 0.941176, 0.92)
 theme_override_font_sizes/font_size = 11
+text = "Guide clever kittens through cozy conundrums."
 autowrap_mode = 2
 
 [node name="CatImagePanel" type="PanelContainer" parent="SafeMargin/CenterContainer/MainCard/CardMargin/MainVBox"]
+custom_minimum_size = Vector2(0, 115)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
-custom_minimum_size = Vector2(0, 115)
 theme_override_styles/panel = SubResource("StyleBoxFlat_photo")
 
 [node name="CatImage" type="TextureRect" parent="SafeMargin/CenterContainer/MainCard/CardMargin/MainVBox/CatImagePanel"]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.97)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_0uwcm")
 expand_mode = 1
 stretch_mode = 5
-modulate = Color(1, 1, 1, 0.97)
 
 [node name="Buttons" type="VBoxContainer" parent="SafeMargin/CenterContainer/MainCard/CardMargin/MainVBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-separation = 5
 
 [node name="StartButton" type="Button" parent="SafeMargin/CenterContainer/MainCard/CardMargin/MainVBox/Buttons"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 27)
 layout_mode = 2
 size_flags_horizontal = 3
-custom_minimum_size = Vector2(0, 27)
-theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
 theme_override_colors/font_color = Color(0.192157, 0.109804, 0.203922, 1)
 theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 text = "Start Adventure"
 
 [node name="CreditsButton" type="Button" parent="SafeMargin/CenterContainer/MainCard/CardMargin/MainVBox/Buttons"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
-custom_minimum_size = Vector2(0, 25)
-theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
 theme_override_colors/font_color = Color(0.192157, 0.109804, 0.203922, 1)
 theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 text = "Credits & Thanks"
 
 [node name="QuitButton" type="Button" parent="SafeMargin/CenterContainer/MainCard/CardMargin/MainVBox/Buttons"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
-custom_minimum_size = Vector2(0, 25)
-theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
 theme_override_colors/font_color = Color(0.192157, 0.109804, 0.203922, 1)
 theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 text = "Curl Up & Quit"
 
 [node name="HintLabel" type="Label" parent="SafeMargin/CenterContainer/MainCard/CardMargin/MainVBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Press Enter or Space to begin."
 theme_override_colors/font_color = Color(0.780392, 0.729412, 0.905882, 0.9)
 theme_override_font_sizes/font_size = 9
-horizontal_alignment = 0
-
+text = "Press Enter or Space to begin."
