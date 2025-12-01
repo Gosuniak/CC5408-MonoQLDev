@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://ckruo8fahvgwu"]
 
-[ext_resource type="Texture2D" uid="uid://pdgnu46d8xfv" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_uj1cs"]
-[ext_resource type="Texture2D" uid="uid://dqakoffmlnm3o" path="res://assets/brackeys_platformer_assets/sprites/platforms.png" id="2_emd7a"]
+[ext_resource type="Texture2D" uid="uid://b78ko42cq4cn3" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_uj1cs"]
+[ext_resource type="Texture2D" uid="uid://ca7btysxhapo3" path="res://assets/brackeys_platformer_assets/sprites/platforms.png" id="2_emd7a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
 texture = ExtResource("1_uj1cs")
