@@ -1,10 +1,10 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://ckruo8fahvgwu"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cy8edx7k0ipbs"]
 
-[ext_resource type="Texture2D" uid="uid://pdgnu46d8xfv" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_uj1cs"]
-[ext_resource type="Texture2D" uid="uid://dqakoffmlnm3o" path="res://assets/brackeys_platformer_assets/sprites/platforms.png" id="2_emd7a"]
+[ext_resource type="Texture2D" uid="uid://pdgnu46d8xfv" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_14aew"]
+[ext_resource type="Texture2D" uid="uid://dqakoffmlnm3o" path="res://assets/brackeys_platformer_assets/sprites/platforms.png" id="2_5w2yc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
-texture = ExtResource("1_uj1cs")
+texture = ExtResource("1_14aew")
 0:0/next_alternative_id = 7
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -219,7 +219,7 @@ texture = ExtResource("1_uj1cs")
 1:1/2/terrains_peering_bit/top_side = 2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cfa2r"]
-texture = ExtResource("2_emd7a")
+texture = ExtResource("2_5w2yc")
 margins = Vector2i(24, 0)
 0:0/0 = 0
 1:0/0 = 0
