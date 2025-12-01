@@ -1,52 +1,198 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqqjjdfrm8480"]
+[gd_scene load_steps=9 format=3 uid="uid://dqqjjdfrm8480"]
 
 [ext_resource type="Script" uid="uid://gy2buxg567ip" path="res://scripts/game_over_menu.gd" id="1_m16wd"]
+[ext_resource type="Texture2D" path="res://assets/kitty.png" id="2_5rl5u"]
+[ext_resource type="FontFile" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="3_8lmkw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.14902, 0.105882, 0.215686, 0.95)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 8
+shadow_offset = Vector2(0, 3)
+content_margin_left = 22.0
+content_margin_top = 18.0
+content_margin_right = 22.0
+content_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+bg_color = Color(0.721569, 0.505882, 0.592157, 0.95)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+border_width_all = 1
+border_color = Color(0.960784, 0.878431, 0.964706, 0.85)
+content_margin_left = 8.0
+content_margin_top = 7.0
+content_margin_right = 8.0
+content_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.843137, 0.643137, 0.729412, 0.97)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+border_width_all = 1
+border_color = Color(0.992157, 0.94902, 0.972549, 1)
+content_margin_left = 8.0
+content_margin_top = 7.0
+content_margin_right = 8.0
+content_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+bg_color = Color(0.596078, 0.360784, 0.443137, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+border_width_all = 1
+border_color = Color(0.862745, 0.662745, 0.741176, 1)
+content_margin_left = 8.0
+content_margin_top = 7.0
+content_margin_right = 8.0
+content_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_photo"]
+bg_color = Color(0.203922, 0.156863, 0.278431, 0.92)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
 
 [node name="GameOverMenu" type="CanvasLayer"]
 process_mode = 3
 visible = false
 script = ExtResource("1_m16wd")
 
-[node name="FondoVictoria" type="ColorRect" parent="."]
-modulate = Color(0, 0, 0, 0.8)
+[node name="GameOverUI" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelMenu" type="Panel" parent="."]
-offset_left = 127.0
-offset_top = 24.0
-offset_right = 527.0
-offset_bottom = 324.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelMenu"]
+[node name="Dimmer" type="ColorRect" parent="GameOverUI"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -106.5
-offset_top = -68.5
-offset_right = 106.5
-offset_bottom = 68.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0, 0, 0, 0.45)
+mouse_filter = 1
 
-[node name="Label" type="Label" parent="PanelMenu/VBoxContainer"]
+[node name="SafeMargin" type="MarginContainer" parent="GameOverUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 45
+theme_override_constants/margin_bottom = 30
+
+[node name="CenterContainer" type="CenterContainer" parent="GameOverUI/SafeMargin"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Game Over"
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="RetryButton" type="Button" parent="PanelMenu/VBoxContainer"]
+[node name="MainCard" type="PanelContainer" parent="GameOverUI/SafeMargin/CenterContainer"]
 layout_mode = 2
-text = "Retry Level"
+size_flags_horizontal = 4
+custom_minimum_size = Vector2(320, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
 
-[node name="MainMenuButton" type="Button" parent="PanelMenu/VBoxContainer"]
+[node name="CardMargin" type="MarginContainer" parent="GameOverUI/SafeMargin/CenterContainer/MainCard"]
+layout_mode = 2
+
+[node name="MainVBox" type="VBoxContainer" parent="GameOverUI/SafeMargin/CenterContainer/MainCard/CardMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+separation = 12
+
+[node name="HeaderVBox" type="VBoxContainer" parent="GameOverUI/SafeMargin/CenterContainer/MainCard/CardMargin/MainVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+separation = 4
+
+[node name="TitleLabel" type="Label" parent="GameOverUI/SafeMargin/CenterContainer/MainCard/CardMargin/MainVBox/HeaderVBox"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Main Menu"
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_8lmkw")
+theme_override_font_sizes/font_size = 28
+text = "Run failed"
+
+[node name="DescriptionLabel" type="Label" parent="GameOverUI/SafeMargin/CenterContainer/MainCard/CardMargin/MainVBox/HeaderVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.827451, 0.796078, 0.941176, 0.92)
+theme_override_font_sizes/font_size = 11
+text = "Both kittens stumbled. Take a breath and try again."
+autowrap_mode = 2
+
+[node name="CatImagePanel" type="PanelContainer" parent="GameOverUI/SafeMargin/CenterContainer/MainCard/CardMargin/MainVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_minimum_size = Vector2(0, 110)
+theme_override_styles/panel = SubResource("StyleBoxFlat_photo")
+
+[node name="CatImage" type="TextureRect" parent="GameOverUI/SafeMargin/CenterContainer/MainCard/CardMargin/MainVBox/CatImagePanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_5rl5u")
+expand_mode = 1
+stretch_mode = 5
+modulate = Color(1, 1, 1, 0.97)
+
+[node name="Buttons" type="VBoxContainer" parent="GameOverUI/SafeMargin/CenterContainer/MainCard/CardMargin/MainVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+separation = 6
+
+[node name="RetryButton" type="Button" parent="GameOverUI/SafeMargin/CenterContainer/MainCard/CardMargin/MainVBox/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 27)
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_colors/font_color = Color(0.192157, 0.109804, 0.203922, 1)
+theme_override_font_sizes/font_size = 13
+text = "Retry level"
+
+[node name="MainMenuButton" type="Button" parent="GameOverUI/SafeMargin/CenterContainer/MainCard/CardMargin/MainVBox/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 25)
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_colors/font_color = Color(0.192157, 0.109804, 0.203922, 1)
+theme_override_font_sizes/font_size = 12
+text = "Return to title"
+
+[node name="HintLabel" type="Label" parent="GameOverUI/SafeMargin/CenterContainer/MainCard/CardMargin/MainVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.694118, 0.647059, 0.831373, 0.9)
+theme_override_font_sizes/font_size = 9
+text = "Press Enter to retry or Esc for the main menu."
+horizontal_alignment = 0
