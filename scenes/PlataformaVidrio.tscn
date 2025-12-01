@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://b308f71klvuoi"]
+
+[ext_resource type="Texture2D" uid="uid://b78ko42cq4cn3" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_t0ohu"]
+[ext_resource type="Script" uid="uid://b353gwc3t7efu" path="res://scripts/plataforma_vidrio.gd" id="1_yeh3i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yeh3i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78bdw"]
+size = Vector2(24, 24)
+
+[node name="PlataformaVidrio" type="Node2D"]
+script = ExtResource("1_yeh3i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_yeh3i")
+
+[node name="AreaDetector" type="Area2D" parent="."]
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetector"]
+shape = SubResource("RectangleShape2D_78bdw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.7683716e-07, -4.7683716e-07)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_t0ohu")
+hframes = 16
+vframes = 16
+frame = 38

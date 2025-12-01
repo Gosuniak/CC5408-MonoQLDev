@@ -10,7 +10,7 @@ size = Vector2(16, 16)
 
 [node name="Caja" type="RigidBody2D"]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 15
 physics_material_override = SubResource("PhysicsMaterial_3hmpi")
 can_sleep = false
 lock_rotation = true

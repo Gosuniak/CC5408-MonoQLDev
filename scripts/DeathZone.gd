@@ -12,3 +12,4 @@ func _on_body_entered(body: Node) -> void:
 		return
 	GameManager.registrar_muerte(body, causa_muerte)
 
+

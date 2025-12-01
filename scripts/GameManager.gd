@@ -52,18 +52,19 @@ func jugador2_tiene_item() -> bool:
 
 signal nivel_completado
 signal jugador_muerto(jugador, nombre_jugador, causa)
+signal game_over_signal
 
 var juego_terminado = false
 const PLAYER_BOTTOM_NAME := "Blue kitten"
 const PLAYER_TOP_NAME := "Green kitten"
 
 func victoria():
-	if not juego_terminado:
-		juego_terminado = true
-		print("¡¡¡ NIVEL COMPLETADO !!!")
-		emit_signal("nivel_completado")
-		# Pausar el juego
-		get_tree().paused = true
+	if juego_terminado:
+		return
+	juego_terminado = true
+	print("¡¡¡ NIVEL COMPLETADO !!!")
+	emit_signal("nivel_completado")
+	get_tree().paused = true
 
 func registrar_muerte(player: Node, causa: String = "was lost."):
 	if juego_terminado:
@@ -73,12 +74,25 @@ func registrar_muerte(player: Node, causa: String = "was lost."):
 	print("%s murió: %s" % [nombre, causa])
 	emit_signal("jugador_muerto", player, nombre, causa)
 	get_tree().paused = true
-		
+
+func game_over():
+	if juego_terminado:
+		return
+	print("Game ouva")
+	juego_terminado = true
+	emit_signal("game_over_signal")
+	get_tree().paused = true
+
+func reiniciar_escena():
+	resetear_juego()
+	get_tree().reload_current_scene()
+
 # Función para resetear el estado del juego
 func resetear_juego():
 	juego_terminado = false
 	jugador1_item_scene = null
 	jugador2_item_scene = null
+	get_tree().paused = false
 	print("GameManager reseteado")
 
 func _obtener_nombre_jugador(player: Node) -> String:

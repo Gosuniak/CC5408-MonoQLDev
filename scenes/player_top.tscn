@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cses64j75up8y"]
+[gd_scene load_steps=26 format=3 uid="uid://cses64j75up8y"]
 
 [ext_resource type="Script" uid="uid://bdqu8x3w8m3ga" path="res://scripts/PlayerTop.gd" id="1_r560h"]
 [ext_resource type="Texture2D" uid="uid://hmasupm0p2o0" path="res://assets/kitty.png" id="2_mrej0"]
@@ -148,6 +148,10 @@ states/run/position = Vector2(632, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_inovk"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_3htlq"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_igpv6"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_on4i8"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_ujnlg"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_46uxy"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_duvv0"), "idle", "fall", SubResource("AnimationNodeStateMachineTransition_uwk1u"), "run", "fall", SubResource("AnimationNodeStateMachineTransition_8300k"), "fall", "run", SubResource("AnimationNodeStateMachineTransition_w3x4j")]
 graph_offset = Vector2(0, -108.23045)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrej0"]
+radius = 8.0
+height = 16.0
+
 [node name="PlayerTop" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 7
@@ -186,3 +190,11 @@ vframes = 8
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -7)
+shape = SubResource("CapsuleShape2D_mrej0")
