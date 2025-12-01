@@ -1,0 +1,19 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bms42ukdtb45t"]
+
+[ext_resource type="Texture2D" uid="uid://dwnsybvjfq3vs" path="res://assets/16-bit-spike-Sheet.png" id="1_vpe0o"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ya4ey"]
+texture = ExtResource("1_vpe0o")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.35971832, -6.4749136, 1.4388695, -4.13675, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 1.2590103, 4.856186, -0.35971832, 6.2950554)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 3.956892, 0.35971642, 4.136751, 8, -8, -8, -8)
+
+[resource]
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_ya4ey")

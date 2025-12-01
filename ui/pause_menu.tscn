@@ -1,51 +1,173 @@
-[gd_scene load_steps=2 format=3 uid="uid://i2dvjgefufar"]
+[gd_scene load_steps=8 format=3 uid="uid://i2dvjgefufar"]
 
 [ext_resource type="Script" uid="uid://jky48mgggx4q" path="res://scripts/pause_menu.gd" id="1_50142"]
+[ext_resource type="FontFile" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="2_slppy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.141176, 0.105882, 0.2, 0.96)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 8
+shadow_offset = Vector2(0, 3)
+content_margin_left = 22.0
+content_margin_top = 18.0
+content_margin_right = 22.0
+content_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+bg_color = Color(0.721569, 0.505882, 0.592157, 0.95)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+border_width_all = 1
+border_color = Color(0.960784, 0.878431, 0.964706, 0.85)
+content_margin_left = 8.0
+content_margin_top = 7.0
+content_margin_right = 8.0
+content_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.843137, 0.643137, 0.729412, 0.97)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+border_width_all = 1
+border_color = Color(0.992157, 0.94902, 0.972549, 1)
+content_margin_left = 8.0
+content_margin_top = 7.0
+content_margin_right = 8.0
+content_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+bg_color = Color(0.596078, 0.360784, 0.443137, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+border_width_all = 1
+border_color = Color(0.862745, 0.662745, 0.741176, 1)
+content_margin_left = 8.0
+content_margin_top = 7.0
+content_margin_right = 8.0
+content_margin_bottom = 7.0
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_50142")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -64.0
-offset_right = 36.0
-offset_bottom = 64.0
+[node name="PauseUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+[node name="Dimmer" type="ColorRect" parent="PauseUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.45)
+mouse_filter = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="SafeMargin" type="MarginContainer" parent="PauseUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 45
+theme_override_constants/margin_bottom = 30
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseUI/SafeMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="PauseUI/SafeMargin/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+custom_minimum_size = Vector2(300, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="CardMargin" type="MarginContainer" parent="PauseUI/SafeMargin/CenterContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseUI/SafeMargin/CenterContainer/PanelContainer/CardMargin"]
 layout_mode = 2
-text = "Pause"
-horizontal_alignment = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+separation = 12
 
-[node name="ContinueButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PauseUI/SafeMargin/CenterContainer/PanelContainer/CardMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Game Paused"
+theme_override_fonts/font = ExtResource("2_slppy")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 0
+
+[node name="Description" type="Label" parent="PauseUI/SafeMargin/CenterContainer/PanelContainer/CardMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stretch your paws, then pick an option."
+theme_override_colors/font_color = Color(0.839216, 0.807843, 0.941176, 0.92)
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 2
+
+[node name="ContinueButton" type="Button" parent="PauseUI/SafeMargin/CenterContainer/PanelContainer/CardMargin/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Continue
-"
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 27)
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_colors/font_color = Color(0.192157, 0.109804, 0.203922, 1)
+theme_override_font_sizes/font_size = 13
+text = "Resume"
 
-[node name="RetryButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="RetryButton" type="Button" parent="PauseUI/SafeMargin/CenterContainer/PanelContainer/CardMargin/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Retry"
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 25)
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_colors/font_color = Color(0.192157, 0.109804, 0.203922, 1)
+theme_override_font_sizes/font_size = 12
+text = "Restart level"
 
-[node name="MainMenuButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MainMenuButton" type="Button" parent="PauseUI/SafeMargin/CenterContainer/PanelContainer/CardMargin/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Main Menu"
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 25)
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_colors/font_color = Color(0.192157, 0.109804, 0.203922, 1)
+theme_override_font_sizes/font_size = 12
+text = "Back to title"
+
+[node name="Hint" type="Label" parent="PauseUI/SafeMargin/CenterContainer/PanelContainer/CardMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Press Esc to keep playing."
+theme_override_colors/font_color = Color(0.780392, 0.729412, 0.905882, 0.9)
+theme_override_font_sizes/font_size = 9
+horizontal_alignment = 0
+
