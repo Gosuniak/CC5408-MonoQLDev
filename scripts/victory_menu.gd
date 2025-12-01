@@ -4,8 +4,8 @@ extends CanvasLayer
 # El filtro "*.tscn" hace que solo puedas elegir escenas de Godot
 @export_file("*.tscn") var siguiente_nivel_path: String 
 
-@onready var next_level_button: Button = $PanelMenu/VBoxContainer/NextLevelButton
-@onready var retry_button: Button = $PanelMenu/VBoxContainer/RetryButton
+@onready var next_level_button: Button = %NextLevelButton
+@onready var retry_button: Button = %RetryButton
 @onready var main_menu_button: Button = %MainMenuButton
 
 func _ready() -> void:

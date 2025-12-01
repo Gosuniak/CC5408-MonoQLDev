@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var retry_button: Button = $PanelMenu/VBoxContainer/RetryButton
+@onready var retry_button: Button = %RetryButton
 @onready var main_menu_button: Button = %MainMenuButton
 
 func _ready() -> void:
@@ -17,6 +17,7 @@ func _ready() -> void:
 func _on_game_over_signal():
 	# Mostrar menú cuando un jugador muere (el juego se pausa)
 	visible = true
+	retry_button.grab_focus()
 
 func _on_retry_pressed():
 	GameManager.resetear_juego() # resetea variables
