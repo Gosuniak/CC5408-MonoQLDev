@@ -1,0 +1,200 @@
+[gd_scene load_steps=9 format=3 uid="uid://dpx8p2s8a0o56"]
+
+[ext_resource type="Script" uid="uid://bs1qgudobx5vb" path="res://scripts/death_menu.gd" id="1_t5f5r"]
+[ext_resource type="Texture2D" uid="uid://hmasupm0p2o0" path="res://assets/kitty.png" id="2_sg5xf"]
+[ext_resource type="FontFile" uid="uid://cd75dxybwsbxl" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="3_z7c7c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+content_margin_left = 22.0
+content_margin_top = 18.0
+content_margin_right = 22.0
+content_margin_bottom = 18.0
+bg_color = Color(0.14902, 0.105882, 0.215686, 0.95)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 8
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_photo"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.203922, 0.156863, 0.278431, 0.92)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+content_margin_left = 8.0
+content_margin_top = 7.0
+content_margin_right = 8.0
+content_margin_bottom = 7.0
+bg_color = Color(0.721569, 0.505882, 0.592157, 0.95)
+border_color = Color(0.960784, 0.878431, 0.964706, 0.85)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+content_margin_left = 8.0
+content_margin_top = 7.0
+content_margin_right = 8.0
+content_margin_bottom = 7.0
+bg_color = Color(0.596078, 0.360784, 0.443137, 1)
+border_color = Color(0.862745, 0.662745, 0.741176, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+content_margin_left = 8.0
+content_margin_top = 7.0
+content_margin_right = 8.0
+content_margin_bottom = 7.0
+bg_color = Color(0.843137, 0.643137, 0.729412, 0.97)
+border_color = Color(0.992157, 0.94902, 0.972549, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[node name="DeathMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_t5f5r")
+
+[node name="DeathUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dimmer" type="ColorRect" parent="DeathUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.45)
+
+[node name="SafeMargin" type="MarginContainer" parent="DeathUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 45
+theme_override_constants/margin_bottom = 30
+
+[node name="CenterContainer" type="CenterContainer" parent="DeathUI/SafeMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="DeathUI/SafeMargin/CenterContainer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="CardMargin" type="MarginContainer" parent="DeathUI/SafeMargin/CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="MainVBox" type="VBoxContainer" parent="DeathUI/SafeMargin/CenterContainer/PanelContainer/CardMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HeaderVBox" type="VBoxContainer" parent="DeathUI/SafeMargin/CenterContainer/PanelContainer/CardMargin/MainVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TitleLabel" type="Label" parent="DeathUI/SafeMargin/CenterContainer/PanelContainer/CardMargin/MainVBox/HeaderVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_z7c7c")
+theme_override_font_sizes/font_size = 28
+text = "Kitten down!"
+
+[node name="CauseLabel" type="Label" parent="DeathUI/SafeMargin/CenterContainer/PanelContainer/CardMargin/MainVBox/HeaderVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.827451, 0.796078, 0.941176, 0.92)
+theme_override_font_sizes/font_size = 11
+text = "Blue kitten slipped into the void."
+autowrap_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="DeathUI/SafeMargin/CenterContainer/PanelContainer/CardMargin/MainVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.780392, 0.729412, 0.905882, 0.9)
+theme_override_font_sizes/font_size = 12
+text = "Both kittens must stay safe to finish the level."
+autowrap_mode = 2
+
+[node name="CatImagePanel" type="PanelContainer" parent="DeathUI/SafeMargin/CenterContainer/PanelContainer/CardMargin/MainVBox"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_photo")
+
+[node name="CatImage" type="TextureRect" parent="DeathUI/SafeMargin/CenterContainer/PanelContainer/CardMargin/MainVBox/CatImagePanel"]
+modulate = Color(1, 1, 1, 0.97)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_sg5xf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Buttons" type="VBoxContainer" parent="DeathUI/SafeMargin/CenterContainer/PanelContainer/CardMargin/MainVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RetryButton" type="Button" parent="DeathUI/SafeMargin/CenterContainer/PanelContainer/CardMargin/MainVBox/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 27)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.192157, 0.109804, 0.203922, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "Retry from checkpoint"
+
+[node name="MainMenuButton" type="Button" parent="DeathUI/SafeMargin/CenterContainer/PanelContainer/CardMargin/MainVBox/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.192157, 0.109804, 0.203922, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "Return to title"
+
+[node name="HintLabel" type="Label" parent="DeathUI/SafeMargin/CenterContainer/PanelContainer/CardMargin/MainVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.694118, 0.647059, 0.831373, 0.9)
+theme_override_font_sizes/font_size = 9
+text = "Press Enter to retry or Esc to exit."

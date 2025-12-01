@@ -37,7 +37,7 @@ tile_set = ExtResource("5_jkv2x")
 position = Vector2(253, 320)
 
 [node name="PlayerTop" parent="." instance=ExtResource("2_1bvp3")]
-position = Vector2(280, 31)
+position = Vector2(222, 37)
 
 [node name="Madera" parent="." instance=ExtResource("3_lquwl")]
 modulate = Color(0.730983, 0.34475172, 2.8878452e-07, 1)
