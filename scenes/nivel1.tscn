@@ -20,6 +20,7 @@
 visible = false
 
 [node name="VictoryMenu" parent="." instance=ExtResource("3_smo16")]
+siguiente_nivel_path = "uid://dk8mi1p8xpxox"
 
 [node name="PlayerBottom" parent="." instance=ExtResource("5_smo16")]
 position = Vector2(142, 335)
