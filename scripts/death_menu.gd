@@ -12,7 +12,7 @@ const MAIN_MENU_SCENE_PATH := "res://ui/main_menu.tscn"
 var _is_showing := false
 
 func _ready() -> void:
-	pause_mode = Node.PAUSE_MODE_PROCESS
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	death_ui.visible = false
 	retry_button.pressed.connect(_on_retry_pressed)
 	main_menu_button.pressed.connect(_on_main_menu_pressed)

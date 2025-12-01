@@ -96,7 +96,7 @@ func _create_death_zone(name: String, position: Vector2, size: Vector2, causa: S
 	zone.causa_muerte = causa
 	zone.collision_layer = 0
 	zone.collision_mask = PLAYER_LAYER_MASK
-	zone.pause_mode = Node.PAUSE_MODE_PROCESS
+	zone.process_mode = Node.PROCESS_MODE_ALWAYS
 	var collision_shape := CollisionShape2D.new()
 	var shape := RectangleShape2D.new()
 	shape.size = size
