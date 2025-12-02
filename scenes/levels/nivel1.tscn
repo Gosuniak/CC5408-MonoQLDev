@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cgfqyw8uotwom"]
+[gd_scene load_steps=16 format=4 uid="uid://cgfqyw8uotwom"]
 
 [ext_resource type="PackedScene" uid="uid://bv0ri3wrdhwti" path="res://scenes/fondo.tscn" id="1_bld0g"]
 [ext_resource type="PackedScene" uid="uid://o2kdsm0xklw" path="res://scenes/controls.tscn" id="1_jhu7s"]
@@ -15,12 +15,52 @@
 [ext_resource type="PackedScene" uid="uid://8x722qu4gujo" path="res://scenes/item.tscn" id="12_csdku"]
 [ext_resource type="PackedScene" uid="uid://enac381ne0b0" path="res://scenes/boxes/caja_madera.tscn" id="13_37nsa"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_jhu7s"]
+font_size = 10
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
+
 [node name="Nivel1" type="Node2D"]
 
 [node name="Fondo" parent="." instance=ExtResource("1_bld0g")]
 textura_personalizada = ExtResource("2_jhu7s")
 
 [node name="Controls" parent="." instance=ExtResource("1_jhu7s")]
+
+[node name="Instructions1" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Instructions1"]
+offset_left = 404.0
+offset_right = 639.0
+offset_bottom = 65.0
+text = "Tutorial 1
+The goal of this game is to make both players 
+reach the zone to the right using the boxes they 
+can send to eachother"
+label_settings = SubResource("LabelSettings_jhu7s")
+
+[node name="Instructions2" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Instructions2"]
+offset_left = 241.0
+offset_top = 176.0
+offset_right = 820.0
+offset_bottom = 241.0
+text = "In this first level, we introduce the wooden box. You can push it horizontally and 
+use it to press switches that open gates. You can also use it to climb and reach 
+higher places"
+label_settings = SubResource("LabelSettings_jhu7s")
+
+[node name="Instructions3" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Instructions3"]
+offset_left = 518.0
+offset_top = 277.0
+offset_right = 1097.0
+offset_bottom = 342.0
+text = "The switch can also be
+ pressed by the players"
+label_settings = SubResource("LabelSettings_jhu7s")
 
 [node name="GameOverMenu" parent="." instance=ExtResource("3_8o3r0")]
 
