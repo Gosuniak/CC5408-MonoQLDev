@@ -118,9 +118,9 @@ func lanzar_caja():
 
 func actualizar_label():
 	if GameManager.jugador1_tiene_item():
-		label.text = "WASD [ITEM!]"
+		label.text = "ITEM"
 	else:
-		label.text = "WASD"
+		label.text = ""
 
 func _on_coyote_timeout():
 	pass

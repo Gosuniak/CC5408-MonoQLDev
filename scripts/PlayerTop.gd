@@ -117,9 +117,9 @@ func lanzar_caja():
 
 func actualizar_label():
 	if GameManager.jugador2_tiene_item():
-		label.text = "IJKL [ITEM!]"
+		label.text = "ITEM"
 	else:
-		label.text = "IJKL"
+		label.text = ""
 
 func _on_hurtbox_body_entered(_body):
 	print("pinchao")
