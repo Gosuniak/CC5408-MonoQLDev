@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://cgfqyw8uotwom"]
+[gd_scene load_steps=14 format=4 uid="uid://cgfqyw8uotwom"]
 
 [ext_resource type="PackedScene" uid="uid://dqqjjdfrm8480" path="res://ui/game_over_menu.tscn" id="1_27y2h"]
+[ext_resource type="PackedScene" uid="uid://bv0ri3wrdhwti" path="res://scenes/fondo.tscn" id="1_nkjvb"]
 [ext_resource type="PackedScene" uid="uid://i2dvjgefufar" path="res://ui/pause_menu.tscn" id="2_1ilxn"]
+[ext_resource type="Texture2D" uid="uid://bq5ltjkak24w4" path="res://assets/backgrounds/fondo4.png" id="2_kkeat"]
 [ext_resource type="PackedScene" uid="uid://c61jjaybhl2kk" path="res://ui/victory_menu.tscn" id="3_smo16"]
 [ext_resource type="TileSet" uid="uid://cy8edx7k0ipbs" path="res://assets/tilemap_platform.tres" id="5_ma4t3"]
 [ext_resource type="PackedScene" uid="uid://jk6lawq8xufx" path="res://scenes/player_bottom.tscn" id="5_smo16"]
@@ -13,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://enac381ne0b0" path="res://scenes/caja_madera.tscn" id="11_nkjvb"]
 
 [node name="Nivel1" type="Node2D"]
+
+[node name="Fondo" parent="." instance=ExtResource("1_nkjvb")]
+textura_personalizada = ExtResource("2_kkeat")
 
 [node name="GameOverMenu" parent="." instance=ExtResource("1_27y2h")]
 
