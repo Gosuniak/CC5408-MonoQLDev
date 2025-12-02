@@ -4,6 +4,8 @@ extends Node2D
 @onready var area_detector = $AreaDetector
 @export var capa_visual: TileMapLayer 
 
+@onready var break_platform: AudioStreamPlayer2D = $Break
+
 func _ready():
 	# Conexión de señal básica
 	if not area_detector.body_entered.is_connected(_on_body_entered):
@@ -19,6 +21,17 @@ func romper_plataforma():
 	
 	if capa_visual:
 		borrar_tiles_bajo_plataforma()
+	
+	# Se oculta la plataforma
+	visible = false
+	
+	# Desactivamos el área para evitar que el sonido se repita si cae otra caja
+	area_detector.set_deferred("monitoring", false)
+	
+	# Reproducir sonido y esperar
+	if break_platform:
+		break_platform.play()
+		await break_platform.finished
 	
 	queue_free()
 

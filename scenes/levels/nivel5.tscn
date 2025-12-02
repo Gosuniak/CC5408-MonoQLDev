@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://j4evcn7ksw18"]
+[gd_scene load_steps=20 format=4 uid="uid://j4evcn7ksw18"]
 
 [ext_resource type="PackedScene" uid="uid://bv0ri3wrdhwti" path="res://scenes/fondo.tscn" id="1_gq6qk"]
 [ext_resource type="TileSet" uid="uid://cy8edx7k0ipbs" path="res://assets/tilemap_platform.tres" id="1_ustk4"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dh7a116nae3xs" path="res://scenes/boxes/caja_hierro.tscn" id="13_d3a5h"]
 [ext_resource type="PackedScene" uid="uid://hmd7mihrk3lm" path="res://scenes/boxes/caja_cristal.tscn" id="14_7yhuw"]
 [ext_resource type="PackedScene" uid="uid://enac381ne0b0" path="res://scenes/boxes/caja_madera.tscn" id="15_bna0o"]
+[ext_resource type="AudioStream" uid="uid://dp3glugl56d7o" path="res://assets/brackeys_platformer_assets/music/time_for_adventure.mp3" id="18_fnqyv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_00o7a"]
 font_size = 10
@@ -112,3 +113,8 @@ capa_visual = NodePath("../TileMapLayer")
 [node name="PauseMenu" parent="." instance=ExtResource("4_udej7")]
 
 [node name="VictoryMenu" parent="." instance=ExtResource("5_hoxei")]
+
+[node name="SFX_Background" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_fnqyv")
+volume_db = -15.0
+autoplay = true

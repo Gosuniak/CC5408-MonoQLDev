@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b308f71klvuoi"]
+[gd_scene load_steps=5 format=3 uid="uid://b308f71klvuoi"]
 
 [ext_resource type="Script" uid="uid://b353gwc3t7efu" path="res://scripts/plataforma_vidrio.gd" id="1_yeh3i"]
+[ext_resource type="AudioStream" uid="uid://eidfewhippe0" path="res://assets/brackeys_platformer_assets/sounds/explosion.wav" id="2_yeh3i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yeh3i"]
 size = Vector2(45, 8)
@@ -23,3 +24,7 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetector"]
 position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_78bdw")
+
+[node name="Break" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_yeh3i")
+volume_db = -15.0

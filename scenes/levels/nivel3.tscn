@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://qhrida7lnt6f"]
+[gd_scene load_steps=17 format=4 uid="uid://qhrida7lnt6f"]
 
 [ext_resource type="PackedScene" uid="uid://bv0ri3wrdhwti" path="res://scenes/fondo.tscn" id="1_tffvu"]
 [ext_resource type="Texture2D" uid="uid://l36swyi7rsny" path="res://assets/backgrounds/fondo3.png" id="2_ij7ud"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://8x722qu4gujo" path="res://scenes/item.tscn" id="12_2yao6"]
 [ext_resource type="PackedScene" uid="uid://dh7a116nae3xs" path="res://scenes/boxes/caja_hierro.tscn" id="13_xuowh"]
 [ext_resource type="PackedScene" uid="uid://b308f71klvuoi" path="res://scenes/PlataformaVidrio.tscn" id="14_nae4g"]
+[ext_resource type="AudioStream" uid="uid://dp3glugl56d7o" path="res://assets/brackeys_platformer_assets/music/time_for_adventure.mp3" id="15_ij7ud"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tffvu"]
 font_size = 10
@@ -97,3 +98,8 @@ capa_visual = NodePath("../TileMapLayer")
 position = Vector2(438, 165)
 scale = Vector2(4.5, 1)
 capa_visual = NodePath("../TileMapLayer")
+
+[node name="SFX_Background" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_ij7ud")
+volume_db = -15.0
+autoplay = true

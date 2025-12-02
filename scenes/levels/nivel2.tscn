@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bfsk8eoumtqmj"]
+[gd_scene load_steps=18 format=4 uid="uid://bfsk8eoumtqmj"]
 
 [ext_resource type="PackedScene" uid="uid://bv0ri3wrdhwti" path="res://scenes/fondo.tscn" id="1_ipckl"]
 [ext_resource type="Texture2D" uid="uid://daeesyfhnxkc" path="res://assets/backgrounds/fondo5.png" id="2_6dh3h"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dqqjjdfrm8480" path="res://ui/game_over_menu.tscn" id="12_kauky"]
 [ext_resource type="PackedScene" uid="uid://i2dvjgefufar" path="res://ui/pause_menu.tscn" id="13_uuihe"]
 [ext_resource type="PackedScene" uid="uid://c61jjaybhl2kk" path="res://ui/victory_menu.tscn" id="14_ssx4s"]
+[ext_resource type="AudioStream" uid="uid://dp3glugl56d7o" path="res://assets/brackeys_platformer_assets/music/time_for_adventure.mp3" id="16_y0vlm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6dh3h"]
 font_size = 10
@@ -99,3 +100,8 @@ siguiente_nivel_path = "uid://qhrida7lnt6f"
 modulate = Color(0, 1, 1, 1)
 position = Vector2(307, 25)
 box_scene = ExtResource("8_ny10d")
+
+[node name="SFX_Background" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_y0vlm")
+volume_db = -15.0
+autoplay = true

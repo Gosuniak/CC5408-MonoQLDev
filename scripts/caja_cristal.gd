@@ -3,7 +3,8 @@ extends "res://scripts/Caja_Base.gd"
 @onready var timer: Timer = $Timer
 @onready var top_detector: Area2D = $TopDetector
 @onready var down_detector: Area2D = $DownDetector
-
+@onready var sfx_break: AudioStreamPlayer2D = $SFX_Break
+	
 var ha_sido_pisada = false
 
 func _ready():
@@ -24,4 +25,18 @@ func _on_detector_body_entered(body):
 
 func _on_break_timer_timeout():
 	print("Caja de CRISTAL se rompió")
+	
+	# Desaparecer visualmente
+	visible = false
+	
+	# Desactivar colisiones para que jugadores no queden flotando
+	collision_layer = 0
+	collision_mask = 0
+	freeze = true # congelamos su física para que no siga cayendo o calculando cosas
+	
+	# Reproducimos sonido y esperamos
+	if sfx_break:
+		sfx_break.play()
+		await sfx_break.finished
+	
 	queue_free() # Adiós, caja
