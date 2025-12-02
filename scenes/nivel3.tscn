@@ -20,8 +20,8 @@ tile_map_data = PackedByteArray("AAAHABYAAAABAAEAAgAHABUAAAABAAAAAgAHABQAAAABAAE
 tile_set = ExtResource("1_420o1")
 
 [node name="ZonaVictoria" parent="." instance=ExtResource("2_27ws7")]
-position = Vector2(513, 185)
-scale = Vector2(0.2, 3)
+position = Vector2(515, 206)
+scale = Vector2(0.2, 2.3)
 collision_mask = 7
 
 [node name="Switch" parent="." node_paths=PackedStringArray("targets") instance=ExtResource("3_25hrh")]
@@ -46,12 +46,10 @@ desplazamiento = Vector2(0, 100)
 siguiente_nivel_path = "uid://v1xowpht3unu"
 
 [node name="Item" parent="." instance=ExtResource("10_8e22h")]
-modulate = Color(0, 0, 0.36078432, 1)
 position = Vector2(245, 343)
 box_scene = ExtResource("11_m2eqm")
 
 [node name="Item2" parent="." instance=ExtResource("10_8e22h")]
-modulate = Color(0, 0, 0.08235294, 1)
 position = Vector2(233, 31)
 box_scene = ExtResource("11_m2eqm")
 

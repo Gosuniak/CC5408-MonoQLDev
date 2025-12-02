@@ -23,8 +23,8 @@ tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAgAAAAEAAAAAAAEAAgAAAAIAAAAAAAE
 tile_set = ExtResource("1_ustk4")
 
 [node name="ZonaVictoria" parent="." instance=ExtResource("2_63s1x")]
-position = Vector2(607, 174)
-scale = Vector2(0.2, 3)
+position = Vector2(612, 161)
+scale = Vector2(0.2, 1.7)
 collision_mask = 7
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]

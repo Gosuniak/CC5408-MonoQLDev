@@ -50,8 +50,8 @@ rotation = 3.1415927
 targets = [NodePath("../Gate")]
 
 [node name="ZonaVictoria" parent="." instance=ExtResource("8_4hvoh")]
-position = Vector2(497, 187)
-scale = Vector2(0.2, 2.5)
+position = Vector2(498, 177)
+scale = Vector2(0.2, 2.6)
 collision_mask = 7
 
 [node name="Gate" parent="." instance=ExtResource("9_lnpbi")]
