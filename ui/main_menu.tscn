@@ -223,3 +223,87 @@ size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.780392, 0.729412, 0.905882, 0.9)
 theme_override_font_sizes/font_size = 9
 text = "Press Enter or Space to begin."
+
+[node name="CreditsOverlay" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.52)
+
+[node name="CreditsCenter" type="CenterContainer" parent="CreditsOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CreditsPanel" type="PanelContainer" parent="CreditsOverlay/CreditsCenter"]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="CreditsMargin" type="MarginContainer" parent="CreditsOverlay/CreditsCenter/CreditsPanel"]
+layout_mode = 2
+
+[node name="CreditsVBox" type="VBoxContainer" parent="CreditsOverlay/CreditsCenter/CreditsPanel/CreditsMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="CreditsTitle" type="Label" parent="CreditsOverlay/CreditsCenter/CreditsPanel/CreditsMargin/CreditsVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_lah1v")
+theme_override_font_sizes/font_size = 24
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="CreditsIntro" type="Label" parent="CreditsOverlay/CreditsCenter/CreditsPanel/CreditsMargin/CreditsVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.827451, 0.796078, 0.941176, 0.92)
+theme_override_font_sizes/font_size = 11
+text = "Built with cozy vibes and generous community assets."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="CreditsScroll" type="ScrollContainer" parent="CreditsOverlay/CreditsCenter/CreditsPanel/CreditsMargin/CreditsVBox"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CreditsText" type="RichTextLabel" parent="CreditsOverlay/CreditsCenter/CreditsPanel/CreditsMargin/CreditsVBox/CreditsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 2
+text = "[b]Art & Asset Credits[/b]\n- Kitty by Caz Creates Games — https://caz-creates-games.itch.io/kitty\n- Brackeys Platformer Bundle — https://brackeysgames.itch.io/brackeys-platformer-bundle\n- Spikes by Omniclause — https://omniclause.itch.io/spikes\n- Sky Background Pack by Free Game Assets — https://free-game-assets.itch.io/free-sky-with-clouds-background-pixel-art-set\n- Tiny Texture Pack 2 by Screaming Brain Studios — https://screamingbrainstudios.itch.io/tiny-texture-pack-2\n\nThank you for supporting indie creators!"
+
+[node name="CreditsButtons" type="HBoxContainer" parent="CreditsOverlay/CreditsCenter/CreditsPanel/CreditsMargin/CreditsVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="CloseCreditsButton" type="Button" parent="CreditsOverlay/CreditsCenter/CreditsPanel/CreditsMargin/CreditsVBox/CreditsButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 26)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.192157, 0.109804, 0.203922, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "Close"
