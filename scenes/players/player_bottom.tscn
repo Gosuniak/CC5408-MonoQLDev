@@ -1,11 +1,19 @@
-[gd_scene load_steps=26 format=3 uid="uid://jk6lawq8xufx"]
+[gd_scene load_steps=31 format=3 uid="uid://jk6lawq8xufx"]
 
 [ext_resource type="Script" uid="uid://co6qxaxw0hum3" path="res://scripts/PlayerBottom.gd" id="1_1ltou"]
 [ext_resource type="Texture2D" uid="uid://hmasupm0p2o0" path="res://assets/kitty.png" id="2_dm0xx"]
+[ext_resource type="AudioStream" uid="uid://bq1a8p8hs8e7w" path="res://assets/brackeys_platformer_assets/sounds/jump.wav" id="3_j2f6n"]
+[ext_resource type="AudioStream" uid="uid://bxxwoo1s0hgad" path="res://assets/brackeys_platformer_assets/sounds/hurt.wav" id="4_gr3qx"]
+[ext_resource type="AudioStream" uid="uid://cpftt3vn0uqv7" path="res://assets/brackeys_platformer_assets/sounds/coin.wav" id="5_p8fjg"]
+[ext_resource type="AudioStream" uid="uid://dgmhir4f8eqyp" path="res://assets/brackeys_platformer_assets/sounds/tap.wav" id="6_0t1j3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6m6if"]
 radius = 7.0
 height = 14.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_dm0xx"]
+font_size = 12
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_6m6if"]
 length = 0.001
@@ -165,10 +173,20 @@ position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_6m6if")
 
 [node name="Label" type="Label" parent="."]
-offset_top = -50.0
-offset_right = 100.0
-offset_bottom = -20.0
-text = "Activo"
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -24.0
+offset_right = 48.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+label_settings = SubResource("LabelSettings_dm0xx")
+horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -199,3 +217,19 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, 7)
 shape = SubResource("CapsuleShape2D_dm0xx")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("3_j2f6n")
+volume_db = -10.0
+
+[node name="Death" type="AudioStreamPlayer2D" parent="Audio"]
+process_mode = 3
+stream = ExtResource("4_gr3qx")
+
+[node name="Pick" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("5_p8fjg")
+
+[node name="Throw" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("6_0t1j3")

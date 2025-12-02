@@ -11,6 +11,7 @@ const textura_normal = preload("res://assets/switch/button.png")
 const textura_presionado = preload("res://assets/switch/button_pressed.png")
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var pressed_sound: AudioStreamPlayer2D = $Pressed
 
 var is_active: bool = false
 
@@ -56,6 +57,7 @@ func animar_visuals(pressed: bool):
 		# Cambiar a imagen presionada
 		if textura_presionado:
 			sprite_2d.texture = textura_presionado
+			pressed_sound.play()
 	else:
 		# Volver a imagen normal
 		if textura_normal:

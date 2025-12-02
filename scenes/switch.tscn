@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtwhy7s72trqm"]
+[gd_scene load_steps=5 format=3 uid="uid://dtwhy7s72trqm"]
 
 [ext_resource type="Script" uid="uid://c86pfemd7igmi" path="res://scripts/switch.gd" id="1_1i7pn"]
 [ext_resource type="Texture2D" uid="uid://c6ndnwq4o8fy5" path="res://assets/switch/button.png" id="2_e08h5"]
+[ext_resource type="AudioStream" uid="uid://br6k482gl3ivj" path="res://assets/brackeys_platformer_assets/sounds/power_up.wav" id="3_nnoiq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e08h5"]
 size = Vector2(25, 8)
@@ -17,3 +18,7 @@ texture = ExtResource("2_e08h5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -4)
 shape = SubResource("RectangleShape2D_e08h5")
+
+[node name="Pressed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_nnoiq")
+volume_db = -10.0
