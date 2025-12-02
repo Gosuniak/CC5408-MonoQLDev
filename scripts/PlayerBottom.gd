@@ -15,6 +15,12 @@ var was_on_floor: bool = false
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var hurtbox: Area2D = $Hurtbox
 
+# Sonidos
+@onready var jump: AudioStreamPlayer2D = $Audio/Jump
+@onready var death: AudioStreamPlayer2D = $Audio/Death
+@onready var pick: AudioStreamPlayer2D = $Audio/Pick
+@onready var throw: AudioStreamPlayer2D = $Audio/Throw
+
 func _ready():
 	GameManager.player_bottom = self
 	actualizar_label()
@@ -31,6 +37,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jugador1_saltar") and (is_on_floor() or not coyote_timer.is_stopped()):
 		velocity.y = JUMP_VELOCITY
 		was_on_floor = false
+		jump.play()
 
 	# Movimiento con A y D
 	var direction = Input.get_axis("jugador1_izquierda", "jugador1_derecha")
@@ -91,6 +98,7 @@ func detectar_items():
 					# El JUGADOR 1 recoge el item
 					GameManager.jugador1_recoger_item(box_scene_to_get)
 					item.recoger() # Decirle al item que se elimine
+					pick.play()
 					break
 				else:
 					print("ERROR: Item no tiene box_scene configurada")
@@ -113,7 +121,7 @@ func lanzar_caja():
 			# CONFIGURAR GRAVEDAD INVERTIDA (flota hacia arriba)
 			# Todos heredan de CajaBase, así que todos tienen esta función
 			caja.configurar_gravedad(true)
-			
+			throw.play()
 			print("Jugador AZUL lanzó una caja (de un tipo específico) hacia ARRIBA")
 
 func actualizar_label():
@@ -129,6 +137,7 @@ func _on_hurtbox_body_entered(_body):
 	print("pinchao")
 	if not visible:
 		return
+	death.play()
 	set_physics_process(false)
 	visible = false
 	GameManager.game_over()

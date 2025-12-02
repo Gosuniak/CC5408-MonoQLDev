@@ -11,5 +11,3 @@ func _on_body_entered(body: Node) -> void:
 	if not body.is_in_group("player"):
 		return
 	GameManager.registrar_muerte(body, causa_muerte)
-
-

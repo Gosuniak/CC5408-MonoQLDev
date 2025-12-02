@@ -1,7 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://cses64j75up8y"]
+[gd_scene load_steps=31 format=3 uid="uid://cses64j75up8y"]
 
 [ext_resource type="Script" uid="uid://bdqu8x3w8m3ga" path="res://scripts/PlayerTop.gd" id="1_r560h"]
 [ext_resource type="Texture2D" uid="uid://hmasupm0p2o0" path="res://assets/kitty.png" id="2_mrej0"]
+[ext_resource type="AudioStream" uid="uid://bq1a8p8hs8e7w" path="res://assets/brackeys_platformer_assets/sounds/jump.wav" id="3_4gner"]
+[ext_resource type="AudioStream" uid="uid://bxxwoo1s0hgad" path="res://assets/brackeys_platformer_assets/sounds/hurt.wav" id="4_s12rd"]
+[ext_resource type="AudioStream" uid="uid://cpftt3vn0uqv7" path="res://assets/brackeys_platformer_assets/sounds/coin.wav" id="5_mnskd"]
+[ext_resource type="AudioStream" uid="uid://dgmhir4f8eqyp" path="res://assets/brackeys_platformer_assets/sounds/tap.wav" id="6_j7a4i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_so58i"]
 radius = 8.0
@@ -202,3 +206,19 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_mrej0")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("3_4gner")
+volume_db = -10.0
+
+[node name="Death" type="AudioStreamPlayer2D" parent="Audio"]
+process_mode = 3
+stream = ExtResource("4_s12rd")
+
+[node name="Pick" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("5_mnskd")
+
+[node name="Throw" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("6_j7a4i")
